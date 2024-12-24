@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>主页</title>
+</head>
+<body>
+    <h1>欢迎回来, <span th:text="${username}">用户</span>!</h1>
+    <div>
+        <p>您的权限: <span sec:authentication="authorities"></span></p>
+    </div>
+    
+    <!-- 根据权限显示不同的内容 -->
+    <div sec:authorize="hasRole('SYSTEM_ADMIN')">
+        <h2>系统管理员功能</h2>
+        <ul>
+            <li><a href="/admin/dashboard">管理控制台</a></li>
+        </ul>
+    </div>
+    
+    <div sec:authorize="hasRole('HR')">
+        <h2>人力资源功能</h2>
+        <ul>
+            <li><a href="/hr/employees">员工管理</a></li>
+        </ul>
+    </div>
+    
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="退出登录"/>
+    </form>
+</body>
+</html>

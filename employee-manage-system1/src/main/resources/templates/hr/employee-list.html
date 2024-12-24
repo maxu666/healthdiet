@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>员工管理</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>员工管理</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>工号</th>
+                <th>姓名</th>
+                <th>部门</th>
+                <th>职位</th>
+                <th>出生日期</th>
+                <th>性别</th>
+                <th>薪资</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.number}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.bumen}"></td>
+                <td th:text="${employee.zhiwei}"></td>
+                <td th:text="${employee.birth}"></td>
+                <td th:text="${employee.sex}"></td>
+                <td th:text="${employee.salary}"></td>
+                <td>
+                    <a th:href="@{/hr/employee/edit/{id}(id=${employee.id})}" 
+                       class="btn btn-edit">编辑</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div style="margin-top: 20px;">
+        <a href="/main" class="btn">返回主页</a>
+    </div>
+</body>
+</html> 

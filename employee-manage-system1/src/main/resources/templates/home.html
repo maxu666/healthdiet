@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>首页</title>
+</head>
+<body>
+    <h1>欢迎回来, <span th:text="${username}">用户</span>!</h1>
+    <div>
+        <p>您的权限: <span th:text="${#authentication.authorities}"></span></p>
+    </div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="退出登录"/>
+    </form>
+</body>
+</html> 

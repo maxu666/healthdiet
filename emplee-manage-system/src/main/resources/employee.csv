@@ -1,0 +1,4 @@
+#id,number,name,department,position,birthday,sex,salary
+1,10001,zhangsan,product,SDE,1995-05-19,male,15000
+2,10002,lisi,product,QA,1995-08-25,female,12000
+3,10003,wangwu,product,SDE,2000-11-02,male,5000

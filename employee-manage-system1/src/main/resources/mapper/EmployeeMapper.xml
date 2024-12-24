@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.ncut.cs.springboot.employeemanagesystem1.mapper.EmployeeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.edu.ncut.cs.springboot.employeemanagesystem1.entity.Employee">
+        <id column="id" property="id" />
+        <result column="number" property="number" />
+        <result column="name" property="name" />
+        <result column="bumen" property="bumen" />
+        <result column="zhiwei" property="zhiwei" />
+        <result column="birth" property="birth" />
+        <result column="sex" property="sex" />
+        <result column="salary" property="salary" />
+        <result column="permission" property="permission" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, number, name, bumen, zhiwei, birth, sex, salary, permission
+    </sql>
+
+</mapper>

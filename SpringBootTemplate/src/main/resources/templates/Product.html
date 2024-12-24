@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>商品详情</title>
+  <link type="text/css" rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>商品名称</th>
+    <th>商品价格</th>
+    <th>商品数量</th>
+  </tr>
+  <tr th:each="p : ${data}">
+    <td th:text="${p.id}">默认ID</td>
+    <td th:text="${p.name}">默认商品名称</td>
+    <td th:text="${p.price}">默认商品价格</td>
+    <td th:text="${p.amount}">默认商品数量</td>
+  </tr>
+</table>
+</body>
+</html>
