@@ -38,6 +38,8 @@ public class Employee implements Serializable {
 
     private String permission;
 
+    private String password;
+
 
 
 }

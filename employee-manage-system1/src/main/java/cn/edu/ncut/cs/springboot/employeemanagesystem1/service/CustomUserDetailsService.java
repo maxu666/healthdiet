@@ -32,7 +32,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         return User.builder()
                 .username(employee.getNumber())
-                .password(employee.getNumber())  // 直接使用工号作为密码
+                .password("{noop}" + employee.getPassword())  // 使用 {noop} 前缀表示明文密码
                 .authorities(Collections.singletonList(
                     new SimpleGrantedAuthority("ROLE_" + employee.getPermission())
                 ))

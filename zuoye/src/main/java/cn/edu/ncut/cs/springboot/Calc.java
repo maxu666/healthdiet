@@ -13,7 +13,7 @@ public class Calc {
     }
 
     // 乘法运算
-    public double multiply(double a, double b) {
+    public double multi(double a, double b) {
         return a * b;
     }
 

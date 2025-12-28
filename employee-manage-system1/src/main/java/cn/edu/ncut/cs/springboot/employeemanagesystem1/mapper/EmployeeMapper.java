@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface EmployeeMapper extends BaseMapper<Employee> {
-    // 可以在这里定义自定义查询方法
+
 }
