@@ -126,7 +126,15 @@
     </el-dialog>
 
     <!-- 用户营养数据弹窗（营养师端） -->
-    <el-dialog v-model="nutritionDialogVisible" :title="'👤 ' + (selectedLeftItem?.nickname || selectedLeftItem?.username || '用户') + ' 的营养数据'" width="900px">
+    <el-dialog v-model="nutritionDialogVisible" width="900px">
+      <template #header>
+        <div class="dialog-header-title">
+          <span>👤 {{ selectedLeftItem?.nickname || selectedLeftItem?.username || '用户' }} 的营养数据</span>
+          <el-tag v-if="selectedLeftItem?.healthGoal" type="warning" size="small" style="margin-left: 8px;">
+            🎯 {{ getHealthGoalText(selectedLeftItem.healthGoal) }}
+          </el-tag>
+        </div>
+      </template>
       <div v-if="userNutritionData">
         <!-- 图表区域 -->
         <div class="charts-wrapper">
@@ -512,6 +520,16 @@ const processDietRecords = (records) => {
 const getMealIcon = (mealType) => {
   const map = { '早餐': '🌅', '午餐': '☀️', '晚餐': '🌙', '加餐': '🍪' }
   return map[mealType] || '🍽️'
+}
+
+// 健康目标显示文本
+const getHealthGoalText = (healthGoal) => {
+  const map = {
+    'HEALTH': '健康',
+    'WEIGHT_GAIN': '增肌',
+    'WEIGHT_LOSS': '减脂'
+  }
+  return map[healthGoal] || healthGoal || '健康'
 }
 
 // 滚动到底部
@@ -1138,5 +1156,13 @@ onMounted(() => {
 
 .profile-empty {
   padding: 40px 0;
+}
+
+.dialog-header-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
 </style>

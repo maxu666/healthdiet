@@ -39,6 +39,10 @@
       <el-icon><ChatDotRound /></el-icon>
       <span>营养咨询</span>
     </el-menu-item>
+    <el-menu-item v-if="user.role === 'USER' || user.role === 'NUTRITIONIST'" index="/index/aiChat">
+      <el-icon><MagicStick /></el-icon>
+      <span>AI健康助手</span>
+    </el-menu-item>
     <el-menu-item v-if="user.role === 'ADMIN'" index="/userManage">
       <span>用户管理</span>
     </el-menu-item>
@@ -61,7 +65,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { House, Edit, Search, TrendCharts, SetUp, ChatDotRound, Notebook } from '@element-plus/icons-vue'
+import { House, Edit, Search, TrendCharts, SetUp, ChatDotRound, Notebook, MagicStick } from '@element-plus/icons-vue'
 
 const $route = useRoute()
 const user = ref(JSON.parse(localStorage.getItem("user") || "{}"))
