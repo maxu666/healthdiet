@@ -28,7 +28,7 @@
             class="action-btn"
             @click.stop="viewNutritionistProfile(item)"
           >
-            📋 查看资料
+            查看信息
           </el-button>
           <el-button
             v-if="user.role === 'NUTRITIONIST'"
@@ -37,7 +37,7 @@
             class="action-btn"
             @click.stop="viewUserNutrition(item)"
           >
-            📊 查看营养
+            查看信息
           </el-button>
         </div>
         <div v-if="getUnreadCount(item.id) > 0" class="unread-badge">
@@ -92,7 +92,6 @@
 
     <!-- 未选中 -->
     <div class="empty-right" v-else>
-      <div class="empty-icon">👈</div>
       <div class="empty-text">{{ user.role === 'NUTRITIONIST' ? '选择一个用户回复咨询' : '选择一个营养师开始咨询' }}</div>
     </div>
 
